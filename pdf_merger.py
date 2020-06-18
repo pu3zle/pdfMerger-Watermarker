@@ -9,6 +9,6 @@ def pdf_merger(pdf_list, final_file):
 	for pdf in pdf_list:
 		merger.append(pdf+".pdf")
 	merger.write(final_file+".pdf")
-	
+	print("PDF's merged into {}.pdf".format(final_file))
 
 pdf_merger(inputs, final_file)
