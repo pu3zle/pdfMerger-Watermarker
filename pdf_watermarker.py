@@ -4,9 +4,10 @@ import sys
 
 file = sys.argv[1]
 wtr = sys.argv[2]
+out = sys.argv[3]
 
-template = PyPDF2.PdfFileReader(open(file, 'rb'))
-watermark = PyPDF2.PdfFileReader(open(wtr, 'rb'))
+template = PyPDF2.PdfFileReader(open(file+".pdf", 'rb'))
+watermark = PyPDF2.PdfFileReader(open(wtr+".pdf", 'rb'))
 output = PyPDF2.PdfFileWriter()
 
 for i in range(template.getNumPages()):
@@ -14,5 +15,5 @@ for i in range(template.getNumPages()):
 	page.mergePage(watermark.getPage(0))
 	output.addPage(page)
 	
-with open('watermarked_output.pdf', 'wb') as file:
+with open(out+".pdf", 'wb') as file:
 	output.write(file)
