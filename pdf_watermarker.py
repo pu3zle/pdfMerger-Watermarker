@@ -17,3 +17,4 @@ for i in range(template.getNumPages()):
 	
 with open(out+".pdf", 'wb') as file:
 	output.write(file)
+print("Watermarked version saved in {}.pdf".format(out))
